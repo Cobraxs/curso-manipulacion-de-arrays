@@ -9,19 +9,41 @@
 <body>
     
     <h1>To do list</h1>
+
+        <input type="text"  id="input">
+        <button id="button">Añadir</button>
+    
     <div id="app"></div>
     <script>
+    
+         let button= document.getElementById('button');
+         let input=document.getElementById("input")
+
+         input.addEventListener('submit', (event) =>{
+
+            event.preventDefault();
+            let  cajita={task:input.value, status:false, id:29493}
+            console.log(cajita);
+    
+            products.push(cajita);
+
+         })
         const products = [
-            { title: 'Burger', price: 121},
-            { title: 'Pizza', price: 20},
+            { task: 'Hacer Tarea', status: false, id:2839283},
+            { task: 'Cocinar', status: false,id: 2383489},
+            { task: 'Trabajar', status: false, id:29342820},
+            { task: 'Estudiar', status: false, id:34578294},
 
         ]
         const app = document.getElementById('app');
 
         products.forEach(item => {
+   
 
-            app.innerHTML+= `<li>${item.title}- ${item.price}</li>`;
+
+            app.innerHTML+= `<li><input type="checkbox"  id="${item.id}"> ${item.task}    </li>`;
         })
     </script>
 </body>
 </html>
+
